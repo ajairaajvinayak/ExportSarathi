@@ -175,7 +175,8 @@ export default function AdvisorPage() {
         setLoading(true)
 
         try {
-            const response = await fetch("http://localhost:8000/api/chat/message", {
+            const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://exportsarathi-backend.onrender.com"
+            const response = await fetch(`${API_URL}/api/chat/message`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

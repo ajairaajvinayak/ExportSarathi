@@ -18,7 +18,8 @@ export default function FeasibilityPage() {
         setLoading(true)
 
         try {
-            const response = await fetch("http://localhost:8000/api/feasibility/analyze", {
+            const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://exportsarathi-backend.onrender.com"
+            const response = await fetch(`${API_URL}/api/feasibility/analyze`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -14,7 +14,7 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Create FastAPI app
 app = FastAPI(
-    title="ExportPilot.AI",
+    title="ExportSarathi",
     version="1.0.0",
     description="AI-powered Export & Compliance Copilot for MSMEs"
 )
@@ -54,7 +54,7 @@ class FeasibilityRequest(BaseModel):
 @app.get("/")
 async def root():
     return {
-        "message": "Welcome to ExportPilot.AI",
+        "message": "Welcome to ExportSarathi",
         "version": "1.0.0",
         "status": "operational"
     }
@@ -63,7 +63,7 @@ async def root():
 async def health_check():
     return {
         "status": "healthy",
-        "service": "ExportPilot.AI",
+        "service": "ExportSarathi",
         "version": "1.0.0"
     }
 

@@ -68,14 +68,14 @@ export default function LoginPage() {
                             <div className="space-y-2">
                                 <Label htmlFor="email" className="text-gray-100">Email Address</Label>
                                 <div className="relative flex items-center">
-                                    <div className="absolute left-0 top-0 h-full flex items-center justify-center w-14 border-r-2 border-purple-500/50 bg-slate-700/80 rounded-l-md">
-                                        <Mail className="h-5 w-5 text-purple-300" />
+                                    <div className="absolute left-0 top-0 bottom-0 flex items-center justify-center w-16 bg-gray-900 border-r-4 border-purple-400 rounded-l-md">
+                                        <Mail className="h-6 w-6 text-purple-400" />
                                     </div>
                                     <Input
                                         id="email"
                                         type="email"
                                         placeholder="john@company.com"
-                                        className="pl-16"
+                                        className="pl-20"
                                         value={formData.email}
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                         required
@@ -91,14 +91,14 @@ export default function LoginPage() {
                                     </Link>
                                 </div>
                                 <div className="relative flex items-center">
-                                    <div className="absolute left-0 top-0 h-full flex items-center justify-center w-14 border-r-2 border-purple-500/50 bg-slate-700/80 rounded-l-md">
-                                        <Lock className="h-5 w-5 text-purple-300" />
+                                    <div className="absolute left-0 top-0 bottom-0 flex items-center justify-center w-16 bg-gray-900 border-r-4 border-purple-400 rounded-l-md">
+                                        <Lock className="h-6 w-6 text-purple-400" />
                                     </div>
                                     <Input
                                         id="password"
                                         type="password"
                                         placeholder="••••••••"
-                                        className="pl-16"
+                                        className="pl-20"
                                         value={formData.password}
                                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                                         required

@@ -1,21 +1,26 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Loader2, CheckCircle, AlertTriangle, Globe, Building2, TrendingUp } from "lucide-react"
+import { Loader2, CheckCircle, AlertTriangle, Globe, Building2, TrendingUp, MessageSquare } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
 export default function FeasibilityPage() {
+    const router = useRouter()
     const [loading, setLoading] = useState(false)
     const [result, setResult] = useState<any>(null)
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         setLoading(true)
+
+        const product = (e.target as any).product.value
+        const country = (e.target as any).target.value
 
         try {
             const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://exportsarathi-backend.onrender.com"
@@ -25,10 +30,10 @@ export default function FeasibilityPage() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    product_name: (e.target as any).product.value,
+                    product_name: product,
                     product_description: (e.target as any).description.value,
                     hs_code: (e.target as any)["hs-code"].value,
-                    target_country: (e.target as any).target.value,
+                    target_country: country,
                     manufacturing_location: "India"
                 }),
             })
@@ -39,11 +44,29 @@ export default function FeasibilityPage() {
 
             const data = await response.json()
             setResult(data)
+
+            // Save to history
+            const historyItem = {
+                id: Date.now(),
+                date: new Date().toISOString(),
+                product: product,
+                country: country,
+                score: data.score,
+                status: data.viability_status
+            }
+
+            const existingHistory = JSON.parse(localStorage.getItem("feasibilityHistory") || "[]")
+            localStorage.setItem("feasibilityHistory", JSON.stringify([historyItem, ...existingHistory].slice(0, 10)))
+
         } catch (error) {
             console.error("Error analyzing feasibility:", error)
         } finally {
             setLoading(false)
         }
+    }
+
+    const handleAskAdvisor = () => {
+        router.push("/dashboard/advisor")
     }
 
     return (
@@ -110,12 +133,23 @@ export default function FeasibilityPage() {
                             {/* Score Card */}
                             <Card className="border-l-4 border-l-blue-500 shadow-sm">
                                 <CardHeader className="pb-2">
-                                    <CardTitle className="flex items-center justify-between text-base font-medium text-gray-500">
-                                        Feasibility Score
-                                        <Badge variant={result.score > 70 ? "default" : "secondary"} className={result.score > 70 ? "bg-green-100 text-green-700 hover:bg-green-100" : ""}>
-                                            {result.viability_status} Potential
-                                        </Badge>
-                                    </CardTitle>
+                                    <div className="flex items-center justify-between">
+                                        <CardTitle className="text-base font-medium text-gray-500">
+                                            Feasibility Score
+                                            <Badge variant={result.score > 70 ? "default" : "secondary"} className={`ml-2 ${result.score > 70 ? "bg-green-100 text-green-700 hover:bg-green-100" : ""}`}>
+                                                {result.viability_status} Potential
+                                            </Badge>
+                                        </CardTitle>
+                                        <Button
+                                            variant="outline"
+                                            size="sm"
+                                            onClick={handleAskAdvisor}
+                                            className="text-purple-600 border-purple-200 hover:bg-purple-50"
+                                        >
+                                            <MessageSquare className="h-4 w-4 mr-2" />
+                                            Ask AI Advisor
+                                        </Button>
+                                    </div>
                                 </CardHeader>
                                 <CardContent>
                                     <div className="flex items-baseline gap-2">

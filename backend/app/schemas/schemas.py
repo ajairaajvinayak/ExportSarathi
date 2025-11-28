@@ -62,6 +62,7 @@ class DocumentResponse(BaseModel):
 class ChatRequest(BaseModel):
     message: str
     session_id: Optional[str] = None
+    is_voice: Optional[bool] = False
 
 class ChatResponse(BaseModel):
     response: str

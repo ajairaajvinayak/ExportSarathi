@@ -18,9 +18,9 @@ export default function DashboardLayout({
             {/* Menu Button (Visible on all screens) */}
             <button
                 onClick={() => setSidebarOpen(true)}
-                className="fixed top-4 left-4 z-30 p-2 rounded-lg glass-panel border border-white/10 hover:bg-white/10 transition-colors"
+                className="fixed top-4 left-4 z-30 p-2 rounded-lg bg-background/50 backdrop-blur-md border border-border hover:bg-accent transition-colors"
             >
-                <Menu className="h-6 w-6 text-white" />
+                <Menu className="h-6 w-6 text-foreground" />
             </button>
 
             {/* Sidebar */}
@@ -28,7 +28,7 @@ export default function DashboardLayout({
 
             {/* Main Content */}
             <main className="flex-1 overflow-y-auto">
-                <div className="container mx-auto p-8 lg:p-8 pt-20 lg:pt-8">
+                <div className="container mx-auto p-4 lg:p-8 pt-20 lg:pt-8">
                     {children}
                 </div>
             </main>

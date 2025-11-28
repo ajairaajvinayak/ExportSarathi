@@ -60,4 +60,4 @@ class VectorStoreService:
         if not self.vector_db:
             await self.initialize()
             
-        return self.vector_db.as_retriever()
+        return self.vector_db.as_retriever(search_kwargs={"k": 3})

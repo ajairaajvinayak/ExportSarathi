@@ -96,7 +96,7 @@ export default function AdvisorPage() {
                             silenceTimerRef.current = setTimeout(() => {
                                 recognitionRef.current.stop()
                                 handleVoiceSend(transcript)
-                            }, 2000)
+                            }, 1000)
                         }
                     }
                 }
@@ -203,7 +203,11 @@ export default function AdvisorPage() {
             const response = await fetch(`${API_URL}/api/chat/message`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: messageToSend, session_id: null }),
+                body: JSON.stringify({
+                    message: messageToSend,
+                    session_id: null,
+                    is_voice: isConversationModeRef.current
+                }),
             })
 
             if (!response.ok) throw new Error("Failed to get response")
@@ -233,7 +237,7 @@ export default function AdvisorPage() {
     }
 
     return (
-        <div className="h-[calc(100vh)] -m-8 relative flex flex-col bg-gray-50 dark:bg-gray-950/50 overflow-hidden">
+        <div className="h-[calc(100vh)] -m-4 lg:-m-8 relative flex flex-col bg-gray-50 dark:bg-gray-950/50 overflow-hidden">
             {/* Header */}
             <div className="flex items-center justify-between px-4 md:px-6 py-3 md:py-4 border-b bg-white dark:bg-gray-900/80 backdrop-blur-sm z-10">
                 <div className="pl-20 md:pl-0"> {/* Increased padding for menu button on mobile */}

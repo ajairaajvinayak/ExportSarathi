@@ -20,7 +20,7 @@ async def chat_message(
     
     try:
         # Use the actual AI service with RAG
-        result = await ai_service.get_chat_response(request.message, session_id)
+        result = await ai_service.get_chat_response(request.message, session_id, request.is_voice)
         
         return {
             "response": result["response"],

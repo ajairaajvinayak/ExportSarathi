@@ -29,7 +29,7 @@ export default function LandingPage() {
         </nav>
         <div className="flex items-center gap-4 ml-8">
           <Link href="/login" className="text-sm font-medium text-gray-100 hover:text-purple-300 transition-colors">Login</Link>
-          <Link href="/dashboard">
+          <Link href="/register">
             <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 border-0 shadow-lg shadow-purple-500/50">
               Get Started <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -59,7 +59,7 @@ export default function LandingPage() {
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-            <Link href="/dashboard">
+            <Link href="/register">
               <Button size="lg" className="h-14 px-10 text-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-2xl shadow-purple-500/50 border-0 group">
                 Start Exporting Now
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -200,7 +200,7 @@ export default function LandingPage() {
               <p className="text-xl text-gray-100 mb-10 max-w-2xl mx-auto">
                 Join thousands of Indian MSMEs already using ExportSarathi to expand their business internationally.
               </p>
-              <Link href="/dashboard">
+              <Link href="/register">
                 <Button size="lg" className="h-16 px-12 text-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-2xl shadow-purple-500/50 border-0">
                   Start Your Export Journey
                   <ArrowRight className="ml-3 h-6 w-6" />

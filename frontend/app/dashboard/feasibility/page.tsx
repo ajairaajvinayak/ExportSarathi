@@ -50,7 +50,7 @@ export default function FeasibilityPage() {
         <div className="max-w-5xl mx-auto space-y-8 pb-10">
             <div className="flex flex-col gap-2">
                 <h1 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">Export Feasibility Analysis</h1>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-gray-300">
                     Evaluate your product's potential in international markets with AI-driven insights.
                 </p>
             </div>

@@ -41,7 +41,7 @@ export default function CompliancePage() {
         <div className="max-w-5xl mx-auto space-y-8 pb-10">
             <div className="flex flex-col gap-2">
                 <h1 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">Compliance Roadmap</h1>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-gray-300">
                     Step-by-step guide to becoming fully export compliant.
                 </p>
             </div>

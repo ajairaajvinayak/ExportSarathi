@@ -34,7 +34,7 @@ export default function DocumentsPage() {
         <div className="max-w-4xl mx-auto space-y-8 pb-10">
             <div className="flex flex-col gap-2">
                 <h1 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">Document Generator</h1>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-gray-300">
                     Auto-generate compliant export documentation in seconds.
                 </p>
             </div>

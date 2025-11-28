@@ -5,12 +5,12 @@ class Settings(BaseSettings):
     """Application settings"""
     
     # App Info
-    APP_NAME: str = "ExportPilot.AI"
+    APP_NAME: str = "ExportSarathi"
     APP_VERSION: str = "1.0.0"
-    ENVIRONMENT: str = "development"
+    APP_DESCRIPTION: str = "AI-powered Export & Compliance Copilot for MSMEs"
     
     # Database
-    DATABASE_URL: str = "sqlite:///./exportpilot.db"
+    DATABASE_URL: str = "sqlite:///./exportsarathi.db"
     
     # Security
     SECRET_KEY: str = "your-secret-key-change-in-production"

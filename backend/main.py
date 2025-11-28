@@ -15,7 +15,7 @@ from app.services.vector_store import VectorStoreService
 async def lifespan(app: FastAPI) -> AsyncGenerator:
     """Application lifespan manager"""
     # Startup
-    print("🚀 Starting ExportPilot.AI...")
+    print("🚀 Starting ExportSarathi...")
     
     # Create database tables
     Base.metadata.create_all(bind=engine)
@@ -30,12 +30,12 @@ async def lifespan(app: FastAPI) -> AsyncGenerator:
         print(f"⚠️  Vector store initialization skipped: {e}")
         app.state.vector_store = None
     
-    print("✅ ExportPilot.AI is ready!")
+    print("✅ ExportSarathi is ready!")
     
     yield
     
     # Shutdown
-    print("👋 Shutting down ExportPilot.AI...")
+    print("👋 Shutting down ExportSarathi...")
 
 # Create FastAPI application
 app = FastAPI(
@@ -66,7 +66,7 @@ app.include_router(analytics.router, prefix="/api/analytics", tags=["Analytics"]
 async def root():
     """Root endpoint"""
     return {
-        "message": "Welcome to ExportPilot.AI",
+        "message": "Welcome to ExportSarathi",
         "version": settings.APP_VERSION,
         "status": "operational"
     }

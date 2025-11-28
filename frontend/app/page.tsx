@@ -18,7 +18,7 @@ export default function LandingPage() {
           <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center glow-effect">
             <Globe className="h-6 w-6 text-white" />
           </div>
-          <span className="gradient-text">ExportPilot.AI</span>
+          <span className="gradient-text">ExportSarathi</span>
         </div>
         <nav className="hidden md:flex gap-8 text-sm font-medium">
           <Link href="#features" className="text-gray-100 hover:text-purple-300 transition-colors">Features</Link>
@@ -191,7 +191,7 @@ export default function LandingPage() {
                 Ready to <span className="gradient-text">go global</span>?
               </h2>
               <p className="text-xl text-gray-100 mb-10 max-w-2xl mx-auto">
-                Join thousands of Indian MSMEs already using ExportPilot.AI to expand their business internationally.
+                Join thousands of Indian MSMEs already using ExportSarathi to expand their business internationally.
               </p>
               <Link href="/dashboard">
                 <Button size="lg" className="h-16 px-12 text-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-2xl shadow-purple-500/50 border-0">
@@ -211,7 +211,7 @@ export default function LandingPage() {
               <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
                 <Globe className="h-6 w-6 text-white" />
               </div>
-              <span className="gradient-text">ExportPilot.AI</span>
+              <span className="gradient-text">ExportSarathi</span>
             </div>
             <p className="text-gray-200 max-w-sm leading-relaxed">
               Making Indian MSMEs global champions through cutting-edge AI technology and intelligent automation.
@@ -237,7 +237,7 @@ export default function LandingPage() {
           </div>
         </div>
         <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/10 text-center text-gray-200">
-          <p>© 2024 ExportPilot.AI. All rights reserved. Built for <span className="text-purple-300 font-semibold">Impact AI Summit 2024</span></p>
+          <p>© 2024 ExportSarathi. All rights reserved. Built for <span className="text-purple-300 font-semibold">Impact AI Summit 2024</span></p>
         </div>
       </footer>
     </div>

@@ -105,9 +105,9 @@ export default function LandingPage() {
                 <p className="text-gray-200 leading-relaxed">
                   Identify the best target countries for your specific product using real-time trade data and AI-powered demand analysis.
                 </p>
-                <div className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform">
+                <Link href="/dashboard" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
                   Learn more <ArrowRight className="ml-2 h-4 w-4" />
-                </div>
+                </Link>
               </div>
 
               {/* Feature 2 */}
@@ -119,9 +119,9 @@ export default function LandingPage() {
                 <p className="text-gray-200 leading-relaxed">
                   Get a step-by-step checklist of certifications, registrations, and legal requirements for any destination country.
                 </p>
-                <div className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform">
+                <Link href="/dashboard/compliance" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
                   Learn more <ArrowRight className="ml-2 h-4 w-4" />
-                </div>
+                </Link>
               </div>
 
               {/* Feature 3 */}
@@ -133,9 +133,9 @@ export default function LandingPage() {
                 <p className="text-gray-200 leading-relaxed">
                   Generate error-free Commercial Invoices, Packing Lists, and Certificates of Origin in one click with AI assistance.
                 </p>
-                <div className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform">
+                <Link href="/dashboard/documents" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
                   Learn more <ArrowRight className="ml-2 h-4 w-4" />
-                </div>
+                </Link>
               </div>
 
               {/* Feature 4 */}
@@ -147,9 +147,9 @@ export default function LandingPage() {
                 <p className="text-gray-200 leading-relaxed">
                   Track your export readiness score, market trends, and compliance status all in one beautiful dashboard.
                 </p>
-                <div className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform">
+                <Link href="/dashboard/analytics" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
                   Learn more <ArrowRight className="ml-2 h-4 w-4" />
-                </div>
+                </Link>
               </div>
 
               {/* Feature 5 */}
@@ -161,9 +161,9 @@ export default function LandingPage() {
                 <p className="text-gray-200 leading-relaxed">
                   Get instant answers to your compliance queries with our RAG-powered chatbot trained on DGFT and WTO regulations.
                 </p>
-                <div className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform">
+                <Link href="/dashboard/advisor" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
                   Learn more <ArrowRight className="ml-2 h-4 w-4" />
-                </div>
+                </Link>
               </div>
 
               {/* Feature 6 */}
@@ -175,9 +175,9 @@ export default function LandingPage() {
                 <p className="text-gray-200 leading-relaxed">
                   AI-driven analysis of your product's potential in global markets with detailed viability scores and recommendations.
                 </p>
-                <div className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform">
+                <Link href="/dashboard/feasibility" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
                   Learn more <ArrowRight className="ml-2 h-4 w-4" />
-                </div>
+                </Link>
               </div>
             </div>
           </div>

@@ -10,7 +10,7 @@ from app.schemas.schemas import FeasibilityRequest
 class AIService:
     def __init__(self, vector_store):
         self.llm = ChatGoogleGenerativeAI(
-            model="gemini-2.5-flash",
+            model="gemini-1.5-flash",
             temperature=0.2,
             google_api_key=settings.GOOGLE_API_KEY,
             convert_system_message_to_human=True

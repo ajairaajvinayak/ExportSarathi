@@ -28,16 +28,31 @@ export default function AdvisorPage() {
     const [isListening, setIsListening] = useState(false)
     const [isSpeaking, setIsSpeaking] = useState(false)
     const [isConversationMode, setIsConversationMode] = useState(false)
+    const isConversationModeRef = useRef(false) // Ref to track mode in callbacks
 
     const scrollRef = useRef<HTMLDivElement>(null)
     const recognitionRef = useRef<any>(null)
     const silenceTimerRef = useRef<NodeJS.Timeout | null>(null)
+    const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([])
 
     useEffect(() => {
         if (scrollRef.current) {
             scrollRef.current.scrollIntoView({ behavior: "smooth" })
         }
     }, [messages])
+
+    // Load voices
+    useEffect(() => {
+        if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+            const loadVoices = () => {
+                const availableVoices = window.speechSynthesis.getVoices()
+                setVoices(availableVoices)
+            }
+
+            loadVoices()
+            window.speechSynthesis.onvoiceschanged = loadVoices
+        }
+    }, [])
 
     // Cleanup on unmount
     useEffect(() => {
@@ -60,7 +75,7 @@ export default function AdvisorPage() {
             const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
             if (SpeechRecognition) {
                 recognitionRef.current = new SpeechRecognition()
-                recognitionRef.current.continuous = false // We handle continuity manually for better control
+                recognitionRef.current.continuous = false
                 recognitionRef.current.interimResults = true
                 recognitionRef.current.lang = 'en-US'
 
@@ -76,15 +91,12 @@ export default function AdvisorPage() {
 
                     setInput(transcript)
 
-                    // If in conversation mode, handle silence detection and auto-send
-                    if (isConversationMode) {
+                    if (isConversationModeRef.current) {
                         if (silenceTimerRef.current) clearTimeout(silenceTimerRef.current)
 
-                        // If result is final, send message
                         if (event.results[0].isFinal) {
                             handleVoiceSend(transcript)
                         } else {
-                            // If not final but silence detected for 3 seconds, consider it done
                             silenceTimerRef.current = setTimeout(() => {
                                 recognitionRef.current.stop()
                                 handleVoiceSend(transcript)
@@ -97,31 +109,26 @@ export default function AdvisorPage() {
                     console.error("Speech recognition error", event.error)
                     setIsListening(false)
                     if (event.error === 'not-allowed') {
-                        alert("Microphone access denied. Please enable microphone permissions in your browser settings.")
+                        alert("Microphone access denied. Please enable microphone permissions.")
                         setIsConversationMode(false)
+                        isConversationModeRef.current = false
                     } else if (event.error === 'no-speech') {
-                        // Just restart if in conversation mode
-                        if (isConversationMode) {
+                        if (isConversationModeRef.current) {
                             try {
                                 recognitionRef.current.start()
-                            } catch (e) {
-                                // Ignore if already started
-                            }
+                            } catch (e) { }
                         }
                     }
                 }
 
                 recognitionRef.current.onend = () => {
-                    // Only set isListening to false if NOT in conversation mode or if we stopped it manually
-                    if (!isConversationMode) {
+                    if (!isConversationModeRef.current) {
                         setIsListening(false)
                     }
                 }
-            } else {
-                console.warn("Speech Recognition API not supported in this browser.")
             }
         }
-    }, [isConversationMode])
+    }, []) // Removed isConversationMode dependency to avoid re-init
 
     const startListening = () => {
         if (recognitionRef.current) {
@@ -131,7 +138,7 @@ export default function AdvisorPage() {
                 console.error("Error starting speech recognition:", e)
             }
         } else {
-            alert("Speech recognition is not supported in this browser. Please use Chrome, Edge, or Safari.")
+            alert("Speech recognition is not supported in this browser.")
         }
     }
 
@@ -151,29 +158,29 @@ export default function AdvisorPage() {
                 .replace(/\*/g, '')
                 .replace(/#/g, '')
                 .replace(/\n+/g, '. ')
+                .replace(/\[.*?\]/g, '') // Remove citations like [Source]
 
             const utterance = new SpeechSynthesisUtterance(cleanText)
 
-            // Select a female voice
-            const voices = window.speechSynthesis.getVoices()
-            const femaleVoice = voices.find(voice =>
-                voice.name.includes('Female') ||
+            // Select voice (prefer female/Google US)
+            const preferredVoice = voices.find(voice =>
+                voice.name.includes('Google US English') ||
                 voice.name.includes('Zira') ||
-                voice.name.includes('Google US English')
-            )
+                voice.name.includes('Female')
+            ) || voices[0]
 
-            if (femaleVoice) {
-                utterance.voice = femaleVoice
+            if (preferredVoice) {
+                utterance.voice = preferredVoice
             }
 
             utterance.rate = 1.0
-            utterance.pitch = 1.1 // Slightly higher pitch for clearer female voice
+            utterance.pitch = 1.0
 
             utterance.onstart = () => setIsSpeaking(true)
             utterance.onend = () => {
                 setIsSpeaking(false)
-                // If in conversation mode, start listening again after speaking
-                if (isConversationMode) {
+                // Check ref to see if we should continue conversation
+                if (isConversationModeRef.current) {
                     setTimeout(() => startListening(), 500)
                 }
             }
@@ -193,6 +200,8 @@ export default function AdvisorPage() {
     const toggleConversationMode = () => {
         const newMode = !isConversationMode
         setIsConversationMode(newMode)
+        isConversationModeRef.current = newMode // Update ref
+
         if (newMode) {
             startListening()
         } else {

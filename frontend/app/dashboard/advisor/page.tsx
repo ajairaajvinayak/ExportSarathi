@@ -241,7 +241,7 @@ export default function AdvisorPage() {
                         <Bot className="h-5 w-5 md:h-6 md:w-6 text-purple-600" />
                         ExportSarathi AI
                     </h1>
-                    <p className="text-[10px] md:text-xs text-muted-foreground">Powered by Gemini 2.5 Flash</p>
+                    <p className="text-[10px] md:text-xs text-muted-foreground">Powered by Gemini 1.5 Flash</p>
                 </div>
                 <Button
                     variant={isConversationMode ? "destructive" : "default"}

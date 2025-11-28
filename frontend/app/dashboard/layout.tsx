@@ -15,9 +15,10 @@ export default function DashboardLayout({
     return (
         <div className="flex h-screen overflow-hidden bg-background">
             {/* Mobile Menu Button */}
+            {/* Menu Button (Visible on all screens) */}
             <button
                 onClick={() => setSidebarOpen(true)}
-                className="fixed top-4 left-4 z-30 lg:hidden p-2 rounded-lg glass-panel border border-white/10 hover:bg-white/10 transition-colors"
+                className="fixed top-4 left-4 z-30 p-2 rounded-lg glass-panel border border-white/10 hover:bg-white/10 transition-colors"
             >
                 <Menu className="h-6 w-6 text-white" />
             </button>

@@ -13,150 +13,122 @@ import {
     LogOut,
     ShieldCheck,
     Zap,
-    X
+    X,
+    UserCircle,
+    ChevronRight,
+    Menu
 } from "lucide-react"
 
-const sidebarItems = [
+// Grouped Menu Items
+const menuSections = [
     {
-        title: "Dashboard",
-        href: "/dashboard",
-        icon: LayoutDashboard,
-        gradient: "from-blue-500 to-cyan-500"
+        title: "Analytics & Insights",
+        items: [
+            { title: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
+            { title: "Analytics", href: "/dashboard/analytics", icon: BarChart3 },
+        ]
     },
     {
-        title: "Feasibility Check",
-        href: "/dashboard/feasibility",
-        icon: Globe,
-        gradient: "from-green-500 to-emerald-500"
+        title: "Tools & Services",
+        items: [
+            { title: "Feasibility Check", href: "/dashboard/feasibility", icon: Globe },
+            { title: "AI Advisor", href: "/dashboard/advisor", icon: MessageSquare },
+            { title: "Compliance Roadmap", href: "/dashboard/compliance", icon: ShieldCheck },
+            { title: "Document Gen", href: "/dashboard/documents", icon: FileText },
+        ]
     },
     {
-        title: "AI Advisor",
-        href: "/dashboard/advisor",
-        icon: MessageSquare,
-        gradient: "from-yellow-500 to-orange-500"
-    },
-    {
-        title: "Compliance Roadmap",
-        href: "/dashboard/compliance",
-        icon: ShieldCheck,
-        gradient: "from-purple-500 to-pink-500"
-    },
-    {
-        title: "Document Gen",
-        href: "/dashboard/documents",
-        icon: FileText,
-        gradient: "from-orange-500 to-red-500"
-    },
-    {
-        title: "Analytics",
-        href: "/dashboard/analytics",
-        icon: BarChart3,
-        gradient: "from-indigo-500 to-purple-500"
-    },
-    {
-        title: "Subscription",
-        href: "/dashboard/subscription",
-        icon: Zap,
-        gradient: "from-yellow-400 to-amber-600"
-    },
+        title: "Account & Settings",
+        items: [
+            { title: "Subscription", href: "/dashboard/subscription", icon: Zap },
+            { title: "Settings", href: "/settings", icon: Settings },
+        ]
+    }
 ]
 
 interface SidebarProps {
-    isOpen?: boolean
-    onClose?: () => void
+    isOpen: boolean
+    onClose: () => void
 }
 
-export function Sidebar({ isOpen = true, onClose }: SidebarProps) {
+export function Sidebar({ isOpen, onClose }: SidebarProps) {
     const pathname = usePathname()
-
-    const handleLinkClick = () => {
-        // Close sidebar on mobile when a link is clicked
-        if (onClose) {
-            onClose()
-        }
-    }
 
     return (
         <>
-            {/* Mobile Overlay */}
-            {isOpen && onClose && (
-                <div
-                    className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-                    onClick={onClose}
-                />
-            )}
+            {/* Overlay */}
+            <div
+                className={cn(
+                    "fixed inset-0 bg-black/80 z-40 transition-opacity duration-300 backdrop-blur-sm",
+                    isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+                )}
+                onClick={onClose}
+            />
 
-            {/* Sidebar */}
+            {/* Sidebar Drawer */}
             <div className={cn(
-                "fixed lg:static inset-y-0 left-0 z-50 flex h-screen w-72 flex-col bg-[#1a1a2e] border-r border-white/10 px-6 py-8 transition-transform duration-300 ease-in-out",
-                !isOpen && onClose && "-translate-x-full lg:translate-x-0"
+                "fixed inset-y-0 left-0 z-50 w-80 bg-[#1a1a2e] shadow-2xl transform transition-transform duration-300 ease-in-out flex flex-col border-r border-white/10",
+                isOpen ? "translate-x-0" : "-translate-x-full"
             )}>
-                {/* Close button for mobile */}
-                {onClose && (
+                {/* Header - Amazon Style */}
+                <div className="bg-[#131921] px-6 py-5 flex items-center justify-between shrink-0">
+                    <div className="flex items-center gap-3">
+                        <UserCircle className="h-8 w-8 text-white" />
+                        <h2 className="text-xl font-bold text-white">Hello, Ajai</h2>
+                    </div>
                     <button
                         onClick={onClose}
-                        className="absolute top-4 right-4 lg:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
+                        className="p-1 rounded-full hover:bg-white/10 transition-colors"
                     >
                         <X className="h-6 w-6 text-white" />
                     </button>
-                )}
-
-                <Link href="/" className="flex items-center gap-3 px-2 mb-10 hover:opacity-80 transition-opacity cursor-pointer">
-                    <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center glow-effect">
-                        <Globe className="h-6 w-6 text-white" />
-                    </div>
-                    <span className="text-2xl font-bold gradient-text">ExportSarathi</span>
-                </Link>
-
-                <div className="flex-1 space-y-2 overflow-y-auto">
-                    {sidebarItems.map((item) => {
-                        const isActive = pathname === item.href
-                        return (
-                            <Link
-                                key={item.href}
-                                href={item.href}
-                                onClick={handleLinkClick}
-                                className={cn(
-                                    "group flex items-center gap-3 rounded-xl px-4 py-3.5 text-sm font-medium transition-all duration-300",
-                                    isActive
-                                        ? "glass-panel bg-white/10 text-white shadow-lg"
-                                        : "text-gray-400 hover:text-white hover:bg-white/5"
-                                )}
-                            >
-                                <div className={cn(
-                                    "h-9 w-9 rounded-lg flex items-center justify-center transition-all duration-300",
-                                    isActive
-                                        ? `bg-gradient-to-br ${item.gradient} shadow-lg`
-                                        : "bg-white/5 group-hover:bg-white/10"
-                                )}>
-                                    <item.icon className="h-5 w-5 text-white" />
-                                </div>
-                                <span className="flex-1">{item.title}</span>
-                                {isActive && (
-                                    <div className="h-2 w-2 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 animate-pulse"></div>
-                                )}
-                            </Link>
-                        )
-                    })}
                 </div>
 
-                <div className="border-t border-white/10 pt-6 space-y-2">
-                    <Link
-                        href="/settings"
-                        onClick={handleLinkClick}
-                        className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all duration-300"
-                    >
-                        <div className="h-9 w-9 rounded-lg bg-white/5 flex items-center justify-center">
-                            <Settings className="h-5 w-5" />
+                {/* Scrollable Content */}
+                <div className="flex-1 overflow-y-auto py-4">
+                    {menuSections.map((section, idx) => (
+                        <div key={idx} className="mb-6">
+                            <h3 className="px-6 mb-2 text-sm font-bold text-white uppercase tracking-wider">
+                                {section.title}
+                            </h3>
+                            <ul>
+                                {section.items.map((item) => {
+                                    const isActive = pathname === item.href
+                                    return (
+                                        <li key={item.href}>
+                                            <Link
+                                                href={item.href}
+                                                onClick={onClose}
+                                                className={cn(
+                                                    "flex items-center justify-between px-6 py-3 text-gray-300 hover:bg-white/5 hover:text-white transition-colors group",
+                                                    isActive && "bg-white/10 text-white border-l-4 border-purple-500 pl-5"
+                                                )}
+                                            >
+                                                <div className="flex items-center gap-3">
+                                                    <item.icon className={cn("h-5 w-5", isActive ? "text-purple-400" : "text-gray-400 group-hover:text-white")} />
+                                                    <span className="font-medium">{item.title}</span>
+                                                </div>
+                                                <ChevronRight className="h-4 w-4 text-gray-500 group-hover:text-white" />
+                                            </Link>
+                                        </li>
+                                    )
+                                })}
+                            </ul>
+                            {idx < menuSections.length - 1 && (
+                                <div className="my-4 border-t border-white/10 mx-6" />
+                            )}
                         </div>
-                        Settings
-                    </Link>
-                    <button className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-red-400 hover:text-red-300 hover:bg-red-500/10 transition-all duration-300">
-                        <div className="h-9 w-9 rounded-lg bg-red-500/10 flex items-center justify-center">
-                            <LogOut className="h-5 w-5" />
-                        </div>
-                        Logout
-                    </button>
+                    ))}
+
+                    {/* Logout Section */}
+                    <div className="border-t border-white/10 pt-4 mt-2">
+                        <button className="w-full flex items-center justify-between px-6 py-3 text-red-400 hover:bg-red-500/10 transition-colors group">
+                            <div className="flex items-center gap-3">
+                                <LogOut className="h-5 w-5" />
+                                <span className="font-medium">Sign Out</span>
+                            </div>
+                        </button>
+                    </div>
                 </div>
             </div>
         </>

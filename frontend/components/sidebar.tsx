@@ -101,12 +101,12 @@ export function Sidebar({ isOpen = true, onClose }: SidebarProps) {
                     </button>
                 )}
 
-                <div className="flex items-center gap-3 px-2 mb-10">
+                <Link href="/" className="flex items-center gap-3 px-2 mb-10 hover:opacity-80 transition-opacity cursor-pointer">
                     <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center glow-effect">
                         <Globe className="h-6 w-6 text-white" />
                     </div>
                     <span className="text-2xl font-bold gradient-text">ExportSarathi</span>
-                </div>
+                </Link>
 
                 <div className="flex-1 space-y-2 overflow-y-auto">
                     {sidebarItems.map((item) => {

@@ -27,11 +27,11 @@ export default function LandingPage() {
           <Link href="#pricing" className="text-gray-100 hover:text-purple-300 transition-colors">Pricing</Link>
           <Link href="#about" className="text-gray-100 hover:text-purple-300 transition-colors">About</Link>
         </nav>
-        <div className="flex items-center gap-4 ml-8">
-          <Link href="/login" className="text-sm font-medium text-gray-100 hover:text-purple-300 transition-colors">Login</Link>
+        <div className="flex items-center gap-2 md:gap-4 ml-auto">
+          <Link href="/login" className="text-sm font-medium text-gray-100 hover:text-purple-300 transition-colors px-2 py-1">Login</Link>
           <Link href="/register">
-            <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 border-0 shadow-lg shadow-purple-500/50">
-              Get Started <ArrowRight className="ml-2 h-4 w-4" />
+            <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 border-0 shadow-lg shadow-purple-500/50 text-xs md:text-sm px-3 md:px-4">
+              Get Started <ArrowRight className="ml-2 h-3 w-3 md:h-4 md:w-4" />
             </Button>
           </Link>
         </div>
@@ -56,6 +56,19 @@ export default function LandingPage() {
             <p className="text-lg text-gray-100 mb-10 max-w-2xl mx-auto">
               Your AI-powered companion for navigating global trade, compliance, and market expansion with confidence.
             </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button asChild size="lg" className="w-full sm:w-auto h-14 px-8 text-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-xl shadow-purple-500/20 border-0">
+                <Link href="/register">
+                  Start Free Trial <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto h-14 px-8 text-lg border-white/20 bg-white/5 hover:bg-white/10 text-white">
+                <Link href="#features">
+                  Explore Features
+                </Link>
+              </Button>
+            </div>
           </div>
 
 
@@ -184,7 +197,7 @@ export default function LandingPage() {
               <p className="text-xl text-gray-100 mb-10 max-w-2xl mx-auto">
                 Join thousands of Indian MSMEs already using ExportSarathi to expand their business internationally.
               </p>
-              <Button asChild size="lg" className="h-16 px-12 text-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-2xl shadow-purple-500/50 border-0 transition-transform hover:scale-105">
+              <Button asChild size="lg" className="w-full md:w-auto h-16 px-12 text-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-2xl shadow-purple-500/50 border-0 transition-transform hover:scale-105">
                 <Link href="/register">
                   Start Your Export Journey
                   <ArrowRight className="ml-3 h-6 w-6" />

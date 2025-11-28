@@ -236,12 +236,12 @@ export default function AdvisorPage() {
         <div className="h-[calc(100vh)] -m-8 relative flex flex-col bg-gray-50 dark:bg-gray-950/50 overflow-hidden">
             {/* Header */}
             <div className="flex items-center justify-between px-4 md:px-6 py-3 md:py-4 border-b bg-white dark:bg-gray-900/80 backdrop-blur-sm z-10">
-                <div className="pl-12 md:pl-0"> {/* Add padding for menu button on mobile */}
+                <div className="pl-20 md:pl-0"> {/* Increased padding for menu button on mobile */}
                     <h1 className="text-lg md:text-xl font-bold tracking-tight flex items-center gap-2">
                         <Bot className="h-5 w-5 md:h-6 md:w-6 text-purple-600" />
                         ExportSarathi AI
                     </h1>
-                    <p className="text-[10px] md:text-xs text-muted-foreground">Powered by Gemini 1.5 Flash</p>
+                    <p className="text-[10px] md:text-xs text-muted-foreground">Powered by Gemini 2.5 Flash</p>
                 </div>
                 <Button
                     variant={isConversationMode ? "destructive" : "default"}
@@ -272,7 +272,7 @@ export default function AdvisorPage() {
                                 {msg.role === "user" ? <User className="h-5 w-5" /> : <Bot className="h-5 w-5" />}
                             </div>
                             <div className={cn(
-                                "group relative max-w-[95%] md:max-w-[85%] rounded-2xl px-4 py-3 md:px-5 md:py-3.5 shadow-sm text-sm leading-relaxed",
+                                "group relative max-w-[90%] md:max-w-[85%] rounded-2xl px-4 py-3 md:px-5 md:py-3.5 shadow-sm text-sm leading-relaxed",
                                 msg.role === "user"
                                     ? "bg-blue-600 text-white rounded-tr-none"
                                     : "bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-tl-none"

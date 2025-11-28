@@ -235,21 +235,22 @@ export default function AdvisorPage() {
     return (
         <div className="h-[calc(100vh)] -m-8 relative flex flex-col bg-gray-50 dark:bg-gray-950/50 overflow-hidden">
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b bg-white dark:bg-gray-900/80 backdrop-blur-sm z-10">
-                <div>
-                    <h1 className="text-xl font-bold tracking-tight flex items-center gap-2">
-                        <Bot className="h-6 w-6 text-purple-600" />
+            <div className="flex items-center justify-between px-4 md:px-6 py-3 md:py-4 border-b bg-white dark:bg-gray-900/80 backdrop-blur-sm z-10">
+                <div className="pl-12 md:pl-0"> {/* Add padding for menu button on mobile */}
+                    <h1 className="text-lg md:text-xl font-bold tracking-tight flex items-center gap-2">
+                        <Bot className="h-5 w-5 md:h-6 md:w-6 text-purple-600" />
                         ExportSarathi AI
                     </h1>
-                    <p className="text-xs text-muted-foreground">Powered by Gemini 2.5 Flash</p>
+                    <p className="text-[10px] md:text-xs text-muted-foreground">Powered by Gemini 2.5 Flash</p>
                 </div>
                 <Button
                     variant={isConversationMode ? "destructive" : "default"}
                     onClick={toggleConversationMode}
-                    className="rounded-full shadow-md transition-all hover:scale-105"
+                    size="sm"
+                    className="rounded-full shadow-md transition-all hover:scale-105 h-8 md:h-10 px-3 md:px-4 text-xs md:text-sm"
                 >
-                    {isConversationMode ? <X className="h-4 w-4 mr-2" /> : <Mic className="h-4 w-4 mr-2" />}
-                    {isConversationMode ? "End Voice Mode" : "Voice Mode"}
+                    {isConversationMode ? <X className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" /> : <Mic className="h-3 w-3 md:h-4 md:w-4 mr-1 md:mr-2" />}
+                    {isConversationMode ? "End" : "Voice"}
                 </Button>
             </div>
 
@@ -271,7 +272,7 @@ export default function AdvisorPage() {
                                 {msg.role === "user" ? <User className="h-5 w-5" /> : <Bot className="h-5 w-5" />}
                             </div>
                             <div className={cn(
-                                "group relative max-w-[85%] rounded-2xl px-5 py-3.5 shadow-sm text-sm leading-relaxed",
+                                "group relative max-w-[95%] md:max-w-[85%] rounded-2xl px-4 py-3 md:px-5 md:py-3.5 shadow-sm text-sm leading-relaxed",
                                 msg.role === "user"
                                     ? "bg-blue-600 text-white rounded-tr-none"
                                     : "bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-tl-none"
@@ -321,103 +322,73 @@ export default function AdvisorPage() {
                             </div>
                         </div>
                     )}
-                    <div ref={scrollRef} />
-                </div>
-            </ScrollArea>
+                    <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center text-white animate-in fade-in duration-300">
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            onClick={toggleConversationMode}
+                            className="absolute top-6 right-6 text-white/50 hover:text-white hover:bg-white/10 rounded-full h-12 w-12"
+                        >
+                            <X className="h-6 w-6" />
+                        </Button>
 
-            {/* Input Area */}
-            <div className="p-4 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
-                <form onSubmit={(e) => handleSend(e)} className="max-w-5xl mx-auto relative flex items-center gap-2">
-                    <Input
-                        placeholder="Ask anything about export..."
-                        value={input}
-                        onChange={(e) => setInput(e.target.value)}
-                        disabled={loading || isConversationMode}
-                        className="pr-12 py-6 rounded-full border-gray-300 dark:border-gray-700 focus-visible:ring-purple-500 shadow-sm"
-                    />
-                    <Button
-                        type="submit"
-                        disabled={loading || !input.trim()}
-                        size="icon"
-                        className="absolute right-2 rounded-full h-8 w-8 bg-purple-600 hover:bg-purple-700"
-                    >
-                        <Send className="h-4 w-4" />
-                    </Button>
-                </form>
-                <p className="text-center text-xs text-muted-foreground mt-2">
-                    ExportSarathi can make mistakes. Verify important information.
-                </p>
-            </div>
+                        <div className="flex-1 flex flex-col items-center justify-center gap-12 w-full max-w-md px-6">
+                            <div className="text-center space-y-2">
+                                <h2 className="text-2xl font-semibold">Voice Mode</h2>
+                                <p className="text-white/60">
+                                    {isSpeaking ? "ExportSarathi is speaking..." :
+                                        isListening ? "Listening..." : "Processing..."}
+                                </p>
+                            </div>
 
-            {/* Voice Mode Overlay */}
-            {isConversationMode && (
-                <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center text-white animate-in fade-in duration-300">
-                    <Button
-                        variant="ghost"
-                        size="icon"
-                        onClick={toggleConversationMode}
-                        className="absolute top-6 right-6 text-white/50 hover:text-white hover:bg-white/10 rounded-full h-12 w-12"
-                    >
-                        <X className="h-6 w-6" />
-                    </Button>
+                            {/* Visualizer */}
+                            <div className="relative h-64 w-64 flex items-center justify-center">
+                                {/* Core Orb */}
+                                <div className={cn(
+                                    "absolute h-32 w-32 rounded-full bg-gradient-to-tr from-purple-500 to-blue-500 blur-xl transition-all duration-500",
+                                    isSpeaking ? "scale-110 opacity-80" : "scale-100 opacity-50"
+                                )} />
 
-                    <div className="flex-1 flex flex-col items-center justify-center gap-12 w-full max-w-md px-6">
-                        <div className="text-center space-y-2">
-                            <h2 className="text-2xl font-semibold">Voice Mode</h2>
-                            <p className="text-white/60">
-                                {isSpeaking ? "ExportSarathi is speaking..." :
-                                    isListening ? "Listening..." : "Processing..."}
-                            </p>
-                        </div>
+                                {/* Pulsing Rings */}
+                                <div className={cn(
+                                    "absolute inset-0 border-2 border-white/20 rounded-full transition-all duration-1000",
+                                    isListening ? "scale-100 opacity-100 animate-ping" : "scale-50 opacity-0"
+                                )} />
+                                <div className={cn(
+                                    "absolute inset-0 border-2 border-white/10 rounded-full transition-all duration-1000 delay-150",
+                                    isListening ? "scale-110 opacity-100 animate-ping" : "scale-50 opacity-0"
+                                )} />
 
-                        {/* Visualizer */}
-                        <div className="relative h-64 w-64 flex items-center justify-center">
-                            {/* Core Orb */}
-                            <div className={cn(
-                                "absolute h-32 w-32 rounded-full bg-gradient-to-tr from-purple-500 to-blue-500 blur-xl transition-all duration-500",
-                                isSpeaking ? "scale-110 opacity-80" : "scale-100 opacity-50"
-                            )} />
+                                {/* Center Icon */}
+                                <div className="relative z-10 h-24 w-24 rounded-full bg-white text-black flex items-center justify-center shadow-2xl shadow-purple-500/50">
+                                    {isSpeaking ? (
+                                        <Volume2 className="h-10 w-10 animate-pulse" />
+                                    ) : (
+                                        <Mic className={cn("h-10 w-10", isListening ? "text-purple-600" : "text-gray-400")} />
+                                    )}
+                                </div>
+                            </div>
 
-                            {/* Pulsing Rings */}
-                            <div className={cn(
-                                "absolute inset-0 border-2 border-white/20 rounded-full transition-all duration-1000",
-                                isListening ? "scale-100 opacity-100 animate-ping" : "scale-50 opacity-0"
-                            )} />
-                            <div className={cn(
-                                "absolute inset-0 border-2 border-white/10 rounded-full transition-all duration-1000 delay-150",
-                                isListening ? "scale-110 opacity-100 animate-ping" : "scale-50 opacity-0"
-                            )} />
-
-                            {/* Center Icon */}
-                            <div className="relative z-10 h-24 w-24 rounded-full bg-white text-black flex items-center justify-center shadow-2xl shadow-purple-500/50">
-                                {isSpeaking ? (
-                                    <Volume2 className="h-10 w-10 animate-pulse" />
-                                ) : (
-                                    <Mic className={cn("h-10 w-10", isListening ? "text-purple-600" : "text-gray-400")} />
-                                )}
+                            {/* Transcript Preview */}
+                            <div className="h-24 w-full flex items-center justify-center">
+                                <p className="text-center text-lg font-medium text-white/90 leading-relaxed max-w-sm transition-all">
+                                    {input || (isListening ? "..." : "")}
+                                </p>
                             </div>
                         </div>
 
-                        {/* Transcript Preview */}
-                        <div className="h-24 w-full flex items-center justify-center">
-                            <p className="text-center text-lg font-medium text-white/90 leading-relaxed max-w-sm transition-all">
-                                {input || (isListening ? "..." : "")}
-                            </p>
+                        <div className="pb-12">
+                            <Button
+                                variant="outline"
+                                className="rounded-full border-white/20 bg-white/5 hover:bg-white/10 text-white px-8 py-6 h-auto text-lg backdrop-blur-md"
+                                onClick={toggleConversationMode}
+                            >
+                                <StopCircle className="mr-2 h-5 w-5 text-red-400" />
+                                End Conversation
+                            </Button>
                         </div>
                     </div>
-
-                    <div className="pb-12">
-                        <Button
-                            variant="outline"
-                            className="rounded-full border-white/20 bg-white/5 hover:bg-white/10 text-white px-8 py-6 h-auto text-lg backdrop-blur-md"
-                            onClick={toggleConversationMode}
-                        >
-                            <StopCircle className="mr-2 h-5 w-5 text-red-400" />
-                            End Conversation
-                        </Button>
-                    </div>
-                </div>
             )}
-        </div>
-    )
+                </div>
+                )
 }

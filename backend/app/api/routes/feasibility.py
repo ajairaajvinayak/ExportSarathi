@@ -3,19 +3,17 @@ from sqlalchemy.orm import Session
 from app.db.database import get_db
 from app.schemas.schemas import FeasibilityRequest, FeasibilityResponse
 from app.services.ai_service import AIService
-from app.services.vector_store import VectorStoreService
 
 router = APIRouter()
+
+from app.api.dependencies import get_ai_service
 
 @router.post("/analyze", response_model=FeasibilityResponse)
 async def analyze_feasibility(
     request: FeasibilityRequest,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    ai_service: AIService = Depends(get_ai_service)
 ):
-    # Initialize services
-    vector_store = VectorStoreService()
-    ai_service = AIService(vector_store)
-    
     try:
         # Get AI analysis
         result = await ai_service.analyze_feasibility(request)

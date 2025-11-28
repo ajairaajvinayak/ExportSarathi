@@ -26,9 +26,15 @@ async def lifespan(app: FastAPI) -> AsyncGenerator:
         await vector_service.initialize()
         app.state.vector_store = vector_service
         print("✅ Vector store initialized!")
+        
+        # Initialize AI Service
+        from app.services.ai_service import AIService
+        app.state.ai_service = AIService(vector_service)
+        print("✅ AI Service initialized!")
     except Exception as e:
-        print(f"⚠️  Vector store initialization skipped: {e}")
+        print(f"⚠️  Service initialization skipped: {e}")
         app.state.vector_store = None
+        app.state.ai_service = None
     
     print("✅ ExportSarathi is ready!")
     

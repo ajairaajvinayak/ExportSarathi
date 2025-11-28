@@ -3,18 +3,18 @@ from sqlalchemy.orm import Session
 from app.db.database import get_db
 from app.schemas.schemas import ChatRequest, ChatResponse
 from app.services.ai_service import AIService
-from app.services.vector_store import VectorStoreService
 import uuid
 
 router = APIRouter()
 
+from app.api.dependencies import get_ai_service
+
 @router.post("/message", response_model=ChatResponse)
 async def chat_message(
     request: ChatRequest,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    ai_service: AIService = Depends(get_ai_service)
 ):
-    vector_store = VectorStoreService()
-    ai_service = AIService(vector_store)
     
     session_id = request.session_id or str(uuid.uuid4())
     

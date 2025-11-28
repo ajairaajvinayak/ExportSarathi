@@ -12,6 +12,10 @@ load_dotenv()
 # Configure Gemini
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
+# Initialize model globally for better performance
+# Using gemini-1.5-flash for lower latency
+model = genai.GenerativeModel('gemini-1.5-flash')
+
 # Create FastAPI app
 app = FastAPI(
     title="ExportSarathi",
@@ -70,8 +74,7 @@ async def health_check():
 @app.post("/api/chat/message", response_model=ChatResponse)
 async def chat_message(request: ChatRequest):
     try:
-        # Create Gemini model
-        model = genai.GenerativeModel('gemini-2.5-pro')
+        # Use global model instance
         
         # Create prompt for export advisor
         prompt = f"""You are ExportSarathi, an elite AI Export Advisor and Global Trade Expert.
@@ -125,8 +128,7 @@ Answer the question now as ExportSarathi:"""
 @app.post("/api/feasibility/analyze")
 async def analyze_feasibility(request: FeasibilityRequest):
     try:
-        # Create Gemini model
-        model = genai.GenerativeModel('gemini-2.5-pro')
+        # Use global model instance
         
         # Create prompt
         # Create prompt

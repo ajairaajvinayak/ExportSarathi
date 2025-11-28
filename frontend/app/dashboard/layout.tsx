@@ -1,15 +1,33 @@
+"use client"
+
+import { useState } from "react"
 import { Sidebar } from "@/components/sidebar"
+import { Menu } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export default function DashboardLayout({
     children,
 }: {
     children: React.ReactNode
 }) {
+    const [sidebarOpen, setSidebarOpen] = useState(false)
+
     return (
         <div className="flex h-screen overflow-hidden bg-background">
-            <Sidebar />
+            {/* Mobile Menu Button */}
+            <button
+                onClick={() => setSidebarOpen(true)}
+                className="fixed top-4 left-4 z-30 lg:hidden p-2 rounded-lg glass-panel border border-white/10 hover:bg-white/10 transition-colors"
+            >
+                <Menu className="h-6 w-6 text-white" />
+            </button>
+
+            {/* Sidebar */}
+            <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+
+            {/* Main Content */}
             <main className="flex-1 overflow-y-auto">
-                <div className="container mx-auto p-8">
+                <div className="container mx-auto p-8 lg:p-8 pt-20 lg:pt-8">
                     {children}
                 </div>
             </main>

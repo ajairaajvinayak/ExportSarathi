@@ -80,14 +80,14 @@ export default function RegisterPage() {
                             <div className="space-y-2">
                                 <Label htmlFor="fullName" className="text-gray-300">Full Name</Label>
                                 <div className="relative flex items-center">
-                                    <div className="absolute left-0 top-0 h-full flex items-center justify-center w-10 border-r border-white/10">
+                                    <div className="absolute left-0 top-0 h-full flex items-center justify-center w-12 border-r-2 border-gray-600 bg-gray-800/30 rounded-l-md">
                                         <User className="h-5 w-5 text-gray-400" />
                                     </div>
                                     <Input
                                         id="fullName"
                                         type="text"
                                         placeholder="John Doe"
-                                        className="pl-12"
+                                        className="pl-14"
                                         value={formData.fullName}
                                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                                         required
@@ -98,14 +98,14 @@ export default function RegisterPage() {
                             <div className="space-y-2">
                                 <Label htmlFor="email" className="text-gray-300">Email Address</Label>
                                 <div className="relative flex items-center">
-                                    <div className="absolute left-0 top-0 h-full flex items-center justify-center w-10 border-r border-white/10">
+                                    <div className="absolute left-0 top-0 h-full flex items-center justify-center w-12 border-r-2 border-gray-600 bg-gray-800/30 rounded-l-md">
                                         <Mail className="h-5 w-5 text-gray-400" />
                                     </div>
                                     <Input
                                         id="email"
                                         type="email"
                                         placeholder="john@company.com"
-                                        className="pl-12"
+                                        className="pl-14"
                                         value={formData.email}
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                         required
@@ -116,14 +116,14 @@ export default function RegisterPage() {
                             <div className="space-y-2">
                                 <Label htmlFor="company" className="text-gray-300">Company Name</Label>
                                 <div className="relative flex items-center">
-                                    <div className="absolute left-0 top-0 h-full flex items-center justify-center w-10 border-r border-white/10">
+                                    <div className="absolute left-0 top-0 h-full flex items-center justify-center w-12 border-r-2 border-gray-600 bg-gray-800/30 rounded-l-md">
                                         <Building className="h-5 w-5 text-gray-400" />
                                     </div>
                                     <Input
                                         id="company"
                                         type="text"
                                         placeholder="Your Company Ltd."
-                                        className="pl-12"
+                                        className="pl-14"
                                         value={formData.company}
                                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                                         required
@@ -134,14 +134,14 @@ export default function RegisterPage() {
                             <div className="space-y-2">
                                 <Label htmlFor="password" className="text-gray-300">Password</Label>
                                 <div className="relative flex items-center">
-                                    <div className="absolute left-0 top-0 h-full flex items-center justify-center w-10 border-r border-white/10">
+                                    <div className="absolute left-0 top-0 h-full flex items-center justify-center w-12 border-r-2 border-gray-600 bg-gray-800/30 rounded-l-md">
                                         <Lock className="h-5 w-5 text-gray-400" />
                                     </div>
                                     <Input
                                         id="password"
                                         type="password"
                                         placeholder="••••••••"
-                                        className="pl-12"
+                                        className="pl-14"
                                         value={formData.password}
                                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                                         required
@@ -152,14 +152,14 @@ export default function RegisterPage() {
                             <div className="space-y-2">
                                 <Label htmlFor="confirmPassword" className="text-gray-300">Confirm Password</Label>
                                 <div className="relative flex items-center">
-                                    <div className="absolute left-0 top-0 h-full flex items-center justify-center w-10 border-r border-white/10">
+                                    <div className="absolute left-0 top-0 h-full flex items-center justify-center w-12 border-r-2 border-gray-600 bg-gray-800/30 rounded-l-md">
                                         <Lock className="h-5 w-5 text-gray-400" />
                                     </div>
                                     <Input
                                         id="confirmPassword"
                                         type="password"
                                         placeholder="••••••••"
-                                        className="pl-12"
+                                        className="pl-14"
                                         value={formData.confirmPassword}
                                         onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                                         required

@@ -2,9 +2,14 @@
 
 > **"Know everything about export."**
 
-ExportSarathi (formerly ExportPilot.AI) is an advanced AI-driven platform designed to empower Indian MSMEs to conquer global markets. It acts as a 24/7 expert consultant, guiding users through the complexities of international trade, compliance, and market analysis.
+**ExportSarathi** (formerly ExportPilot.AI) is an advanced AI-driven platform designed to empower Indian MSMEs to conquer global markets. It acts as a 24/7 expert consultant, guiding users through the complexities of international trade, compliance, and market analysis.
 
-![ExportSarathi Dashboard](https://via.placeholder.com/800x400?text=ExportSarathi+Dashboard)
+![ExportSarathi Banner](https://via.placeholder.com/1200x600?text=ExportSarathi+Dashboard)
+
+## 🌐 Live Demo
+
+- **Frontend (App)**: [https://export-sarathi.vercel.app](https://export-sarathi.vercel.app)
+- **Backend (API)**: [https://exportsarathi-backend.onrender.com](https://exportsarathi-backend.onrender.com)
 
 ## 🚀 Key Features
 
@@ -21,7 +26,9 @@ ExportSarathi (formerly ExportPilot.AI) is an advanced AI-driven platform design
   - Viability Status (High/Medium/Low)
   - Top Suggested Markets
   - Risk Factors & Required Certifications
-  - **NEW: Top Indian Exporters (Competitors) Directory**
+  - **Top Indian Exporters (Competitors)** Directory
+- **Search History**: Automatically saves your feasibility checks for quick reference.
+- **Direct Advisor Access**: Instantly chat with the AI Advisor about your results.
 
 ### 3. 🛣️ Compliance Roadmap
 - **Step-by-Step Guide**: Visual timeline for becoming export-ready.
@@ -33,18 +40,21 @@ ExportSarathi (formerly ExportPilot.AI) is an advanced AI-driven platform design
 - **Templates**: Standardized formats accepted globally.
 - **Draft Saving**: Save and edit document drafts.
 
-### 5. 💎 Subscription Model (Monetization)
-- **Tiered Access**:
-  - **Starter (Free)**: Basic checks and roadmap.
-  - **Pro ($20/mo)**: Unlimited AI analysis, advanced market data, and priority support.
-  - **Enterprise**: Custom solutions for large organizations.
-- **Premium UI**: Dedicated subscription management page.
+### 5. 📱 Mobile-First Experience (PWA)
+- **Progressive Web App**: Installable on mobile devices (Android/iOS).
+- **Responsive Design**: Optimized for all screen sizes.
+- **Mobile Sidebar**: Smooth navigation with gesture support.
+
+### 6. 🔐 Secure Authentication
+- **User Accounts**: Registration and Login functionality.
+- **Personalized Dashboard**: Tracks your specific progress and history.
 
 ## 🛠️ Tech Stack
 
 - **Frontend**: Next.js 14, Tailwind CSS, Lucide React, Shadcn/UI.
 - **Backend**: FastAPI (Python), Google Generative AI (Gemini).
-- **Database**: SQLite (Development), PostgreSQL (Production-ready).
+- **State Management**: React Hooks & LocalStorage.
+- **Deployment**: Vercel (Frontend), Render (Backend).
 - **AI Engine**: Google Gemini 2.5 Pro with RAG capabilities.
 
 ## 🔮 Future Updates (Roadmap)
@@ -55,7 +65,7 @@ ExportSarathi (formerly ExportPilot.AI) is an advanced AI-driven platform design
 - **Logistics Optimization**: AI-driven route planning and shipping cost estimation.
 
 ### Phase 3: Mobile & Vernacular
-- **Mobile App**: Native iOS and Android apps for on-the-go access.
+- **Native Mobile Apps**: Dedicated iOS and Android apps.
 - **Multilingual Support**: Support for major Indian languages (Hindi, Tamil, Gujarati, etc.) to reach more MSMEs.
 
 ### Phase 4: FinTech Integration
@@ -66,7 +76,7 @@ ExportSarathi (formerly ExportPilot.AI) is an advanced AI-driven platform design
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/ExportSarathi.git
+   git clone https://github.com/ajairaajvinayak/ExportSarathi.git
    cd ExportSarathi
    ```
 
@@ -92,4 +102,4 @@ ExportSarathi (formerly ExportPilot.AI) is an advanced AI-driven platform design
 This project is licensed under the MIT License.
 
 ---
-*Built with ❤️ for Indian MSMEs.*
+*Proudly made by Creovyn Solutions for Impact AI Summit 2026*

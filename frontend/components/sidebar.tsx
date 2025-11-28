@@ -88,7 +88,7 @@ export function Sidebar({ isOpen = true, onClose }: SidebarProps) {
 
             {/* Sidebar */}
             <div className={cn(
-                "fixed lg:static inset-y-0 left-0 z-50 flex h-screen w-72 flex-col glass-panel border-r border-white/10 px-6 py-8 transition-transform duration-300 ease-in-out",
+                "fixed lg:static inset-y-0 left-0 z-50 flex h-screen w-72 flex-col bg-[#1a1a2e] border-r border-white/10 px-6 py-8 transition-transform duration-300 ease-in-out",
                 !isOpen && onClose && "-translate-x-full lg:translate-x-0"
             )}>
                 {/* Close button for mobile */}

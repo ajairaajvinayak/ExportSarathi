@@ -236,8 +236,21 @@ export default function LandingPage() {
             </ul>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/10 text-center text-gray-200">
-          <p>© 2024 ExportSarathi. All rights reserved. Built for <span className="text-purple-300 font-semibold">Impact AI Summit 2024</span></p>
+        <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/10">
+          <div className="flex flex-col items-center gap-4">
+            <p className="text-gray-200 text-center">© 2025 ExportSarathi. All rights reserved.</p>
+            <div className="flex flex-col items-center gap-3">
+              <p className="text-sm text-gray-300">Proudly made by</p>
+              <Image
+                src="/creovyn-logo.jpg"
+                alt="Creovyn Solutions"
+                width={200}
+                height={60}
+                className="h-12 w-auto"
+              />
+              <p className="text-sm text-purple-300 font-semibold">for Impact AI Summit 2026</p>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

@@ -30,6 +30,12 @@ const sidebarItems = [
         gradient: "from-green-500 to-emerald-500"
     },
     {
+        title: "AI Advisor",
+        href: "/dashboard/advisor",
+        icon: MessageSquare,
+        gradient: "from-yellow-500 to-orange-500"
+    },
+    {
         title: "Compliance Roadmap",
         href: "/dashboard/compliance",
         icon: ShieldCheck,
@@ -40,12 +46,6 @@ const sidebarItems = [
         href: "/dashboard/documents",
         icon: FileText,
         gradient: "from-orange-500 to-red-500"
-    },
-    {
-        title: "AI Advisor",
-        href: "/dashboard/advisor",
-        icon: MessageSquare,
-        gradient: "from-yellow-500 to-orange-500"
     },
     {
         title: "Analytics",

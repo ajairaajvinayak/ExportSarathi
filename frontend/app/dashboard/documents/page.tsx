@@ -33,7 +33,7 @@ export default function DocumentsPage() {
     return (
         <div className="max-w-4xl mx-auto space-y-8 pb-10">
             <div className="flex flex-col gap-2">
-                <h1 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">Document Generator</h1>
+                <h1 className="text-3xl font-semibold tracking-tight text-gray-100">Document Generator</h1>
                 <p className="text-gray-300">
                     Auto-generate compliant export documentation in seconds.
                 </p>
@@ -57,7 +57,7 @@ export default function DocumentsPage() {
                         <CardContent className="space-y-6">
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div className="space-y-4 p-4 bg-gray-50 dark:bg-gray-900/50 rounded-lg border border-gray-100 dark:border-gray-800">
-                                    <h3 className="font-medium text-gray-900 dark:text-gray-100 flex items-center gap-2">
+                                    <h3 className="font-medium text-gray-100 flex items-center gap-2">
                                         <div className="h-2 w-2 rounded-full bg-blue-500"></div>
                                         Exporter Details
                                     </h3>
@@ -71,7 +71,7 @@ export default function DocumentsPage() {
                                     </div>
                                 </div>
                                 <div className="space-y-4 p-4 bg-gray-50 dark:bg-gray-900/50 rounded-lg border border-gray-100 dark:border-gray-800">
-                                    <h3 className="font-medium text-gray-900 dark:text-gray-100 flex items-center gap-2">
+                                    <h3 className="font-medium text-gray-100 flex items-center gap-2">
                                         <div className="h-2 w-2 rounded-full bg-green-500"></div>
                                         Importer Details
                                     </h3>
@@ -88,7 +88,7 @@ export default function DocumentsPage() {
 
                             <div className="space-y-4">
                                 <div className="flex items-center justify-between">
-                                    <h3 className="font-medium text-gray-900 dark:text-gray-100">Product Items</h3>
+                                    <h3 className="font-medium text-gray-100">Product Items</h3>
                                     <Button variant="outline" size="sm" onClick={addItem} className="text-blue-600 border-blue-200 hover:bg-blue-50 hover:text-blue-700">
                                         <Plus className="h-4 w-4 mr-2" /> Add Item
                                     </Button>

@@ -40,7 +40,7 @@ export default function CompliancePage() {
     return (
         <div className="max-w-5xl mx-auto space-y-8 pb-10">
             <div className="flex flex-col gap-2">
-                <h1 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">Compliance Roadmap</h1>
+                <h1 className="text-3xl font-semibold tracking-tight text-gray-100">Compliance Roadmap</h1>
                 <p className="text-gray-300">
                     Step-by-step guide to becoming fully export compliant.
                 </p>
@@ -67,7 +67,7 @@ export default function CompliancePage() {
                                     </div>
                                     <div className="flex-1 pl-8">
                                         <div className="flex items-center justify-between mb-1">
-                                            <h3 className={`font-semibold text-lg ${step.status === "pending" ? "text-gray-400" : "text-gray-900 dark:text-gray-100"}`}>
+                                            <h3 className={`font-semibold text-lg ${step.status === "pending" ? "text-gray-400" : "text-gray-100"}`}>
                                                 {step.title}
                                             </h3>
                                             {step.status === "current" && (
@@ -108,7 +108,7 @@ export default function CompliancePage() {
                                     <Clock className="h-5 w-5" />
                                 </div>
                                 <div>
-                                    <p className="font-medium text-gray-900 dark:text-gray-100">4-6 Weeks</p>
+                                    <p className="font-medium text-gray-100">4-6 Weeks</p>
                                     <p className="text-sm text-gray-500">To full readiness</p>
                                 </div>
                             </div>

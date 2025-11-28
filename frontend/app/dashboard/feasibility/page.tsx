@@ -49,7 +49,7 @@ export default function FeasibilityPage() {
     return (
         <div className="max-w-5xl mx-auto space-y-8 pb-10">
             <div className="flex flex-col gap-2">
-                <h1 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-100">Export Feasibility Analysis</h1>
+                <h1 className="text-3xl font-semibold tracking-tight text-gray-100">Export Feasibility Analysis</h1>
                 <p className="text-gray-300">
                     Evaluate your product's potential in international markets with AI-driven insights.
                 </p>
@@ -119,7 +119,7 @@ export default function FeasibilityPage() {
                                 </CardHeader>
                                 <CardContent>
                                     <div className="flex items-baseline gap-2">
-                                        <span className="text-5xl font-bold text-gray-900 dark:text-gray-100">{result.score}</span>
+                                        <span className="text-5xl font-bold text-gray-100">{result.score}</span>
                                         <span className="text-gray-400">/100</span>
                                     </div>
                                     <p className="mt-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -223,7 +223,7 @@ export default function FeasibilityPage() {
                             <div className="h-16 w-16 rounded-full bg-gray-50 dark:bg-gray-900 flex items-center justify-center mb-4">
                                 <TrendingUp className="h-8 w-8 text-gray-300" />
                             </div>
-                            <h3 className="font-medium text-lg text-gray-900 dark:text-gray-100">Ready to Analyze</h3>
+                            <h3 className="font-medium text-lg text-gray-100">Ready to Analyze</h3>
                             <p className="max-w-xs mx-auto mt-2">
                                 Fill in the product details to get a comprehensive export feasibility report.
                             </p>

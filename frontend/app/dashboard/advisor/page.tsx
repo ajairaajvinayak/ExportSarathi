@@ -224,7 +224,7 @@ export default function AdvisorPage() {
             console.error("Error:", error)
             setMessages(prev => [...prev, {
                 role: "assistant",
-                content: "Sorry, I encountered an error. Please try again.",
+                content: `Sorry, I encountered an error: ${error instanceof Error ? error.message : "Unknown error"}. Please check if the backend is running and accessible.`,
             }])
         } finally {
             setLoading(false)

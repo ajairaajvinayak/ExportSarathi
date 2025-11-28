@@ -53,7 +53,7 @@ export default function LandingPage() {
             <p className="text-2xl md:text-3xl text-gray-100 mb-8 max-w-3xl mx-auto font-light">
               Know everything about export.
             </p>
-            <p className="text-lg text-gray-200 mb-10 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-100 mb-10 max-w-2xl mx-auto">
               Your AI-powered companion for navigating global trade, compliance, and market expansion with confidence.
             </p>
           </div>
@@ -81,7 +81,7 @@ export default function LandingPage() {
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
                 Everything you need to <span className="gradient-text">go global</span>
               </h2>
-              <p className="text-xl text-gray-200 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-100 max-w-2xl mx-auto">
                 Powerful features designed specifically for Indian exporters
               </p>
             </div>
@@ -93,7 +93,7 @@ export default function LandingPage() {
                   <Sparkles className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-3 text-white">AI Export Advisor</h3>
-                <p className="text-gray-200 leading-relaxed">
+                <p className="text-gray-100 leading-relaxed">
                   Get instant answers to your compliance queries with our RAG-powered chatbot trained on DGFT and WTO regulations.
                 </p>
                 <Link href="/dashboard/advisor" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
@@ -107,7 +107,7 @@ export default function LandingPage() {
                   <TrendingUp className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-3 text-white">Feasibility Checker</h3>
-                <p className="text-gray-200 leading-relaxed">
+                <p className="text-gray-100 leading-relaxed">
                   AI-driven analysis of your product's potential in global markets with detailed viability scores and recommendations.
                 </p>
                 <Link href="/dashboard/feasibility" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
@@ -121,7 +121,7 @@ export default function LandingPage() {
                   <Globe className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-3 text-white">Market Intelligence</h3>
-                <p className="text-gray-200 leading-relaxed">
+                <p className="text-gray-100 leading-relaxed">
                   Identify the best target countries for your specific product using real-time trade data and AI-powered demand analysis.
                 </p>
                 <Link href="/dashboard" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
@@ -135,7 +135,7 @@ export default function LandingPage() {
                   <ShieldCheck className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-3 text-white">Compliance Roadmap</h3>
-                <p className="text-gray-200 leading-relaxed">
+                <p className="text-gray-100 leading-relaxed">
                   Get a step-by-step checklist of certifications, registrations, and legal requirements for any destination country.
                 </p>
                 <Link href="/dashboard/compliance" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
@@ -149,7 +149,7 @@ export default function LandingPage() {
                   <FileText className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-3 text-white">Auto-Documentation</h3>
-                <p className="text-gray-200 leading-relaxed">
+                <p className="text-gray-100 leading-relaxed">
                   Generate error-free Commercial Invoices, Packing Lists, and Certificates of Origin in one click with AI assistance.
                 </p>
                 <Link href="/dashboard/documents" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
@@ -163,7 +163,7 @@ export default function LandingPage() {
                   <BarChart3 className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold mb-3 text-white">Analytics Dashboard</h3>
-                <p className="text-gray-200 leading-relaxed">
+                <p className="text-gray-100 leading-relaxed">
                   Track your export readiness score, market trends, and compliance status all in one beautiful dashboard.
                 </p>
                 <Link href="/dashboard/analytics" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
@@ -204,13 +204,13 @@ export default function LandingPage() {
               </div>
               <span className="gradient-text">ExportSarathi</span>
             </div>
-            <p className="text-gray-200 max-w-sm leading-relaxed">
+            <p className="text-gray-100 max-w-sm leading-relaxed">
               Making Indian MSMEs global champions through cutting-edge AI technology and intelligent automation.
             </p>
           </div>
           <div>
             <h4 className="font-semibold text-white mb-4 text-lg">Product</h4>
-            <ul className="space-y-3 text-gray-200">
+            <ul className="space-y-3 text-gray-100">
               <li className="hover:text-purple-400 transition-colors cursor-pointer">Features</li>
               <li className="hover:text-purple-400 transition-colors cursor-pointer">Pricing</li>
               <li className="hover:text-purple-400 transition-colors cursor-pointer">Case Studies</li>
@@ -219,7 +219,7 @@ export default function LandingPage() {
           </div>
           <div>
             <h4 className="font-semibold text-white mb-4 text-lg">Company</h4>
-            <ul className="space-y-3 text-gray-200">
+            <ul className="space-y-3 text-gray-100">
               <li className="hover:text-purple-400 transition-colors cursor-pointer">About Us</li>
               <li className="hover:text-purple-400 transition-colors cursor-pointer">Careers</li>
               <li className="hover:text-purple-400 transition-colors cursor-pointer">Contact</li>
@@ -229,9 +229,9 @@ export default function LandingPage() {
         </div>
         <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/10">
           <div className="flex flex-col items-center gap-4">
-            <p className="text-gray-200 text-center">© 2025 ExportSarathi. All rights reserved.</p>
+            <p className="text-gray-100 text-center">© 2025 ExportSarathi. All rights reserved.</p>
             <div className="flex flex-col items-center gap-3">
-              <p className="text-sm text-gray-300">Proudly made by</p>
+              <p className="text-sm text-gray-200">Proudly made by</p>
               <Image
                 src="/creovyn-logo.jpg"
                 alt="Creovyn Solutions"

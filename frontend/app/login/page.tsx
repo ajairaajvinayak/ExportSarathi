@@ -59,17 +59,17 @@ export default function LoginPage() {
                 <Card className="clean-card border-white/10">
                     <CardHeader className="text-center">
                         <CardTitle className="text-2xl font-bold text-white">Welcome Back</CardTitle>
-                        <CardDescription className="text-gray-400">
+                        <CardDescription className="text-gray-300">
                             Sign in to continue your export journey
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div className="space-y-2">
-                                <Label htmlFor="email" className="text-gray-300">Email Address</Label>
+                                <Label htmlFor="email" className="text-gray-100">Email Address</Label>
                                 <div className="relative flex items-center">
                                     <div className="absolute left-0 top-0 h-full flex items-center justify-center w-12 border-r-2 border-gray-600 bg-gray-800/30 rounded-l-md">
-                                        <Mail className="h-5 w-5 text-gray-400" />
+                                        <Mail className="h-5 w-5 text-gray-300" />
                                     </div>
                                     <Input
                                         id="email"
@@ -85,14 +85,14 @@ export default function LoginPage() {
 
                             <div className="space-y-2">
                                 <div className="flex items-center justify-between">
-                                    <Label htmlFor="password" className="text-gray-300">Password</Label>
+                                    <Label htmlFor="password" className="text-gray-100">Password</Label>
                                     <Link href="#" className="text-sm text-purple-400 hover:text-purple-300">
                                         Forgot password?
                                     </Link>
                                 </div>
                                 <div className="relative flex items-center">
                                     <div className="absolute left-0 top-0 h-full flex items-center justify-center w-12 border-r-2 border-gray-600 bg-gray-800/30 rounded-l-md">
-                                        <Lock className="h-5 w-5 text-gray-400" />
+                                        <Lock className="h-5 w-5 text-gray-300" />
                                     </div>
                                     <Input
                                         id="password"
@@ -117,7 +117,7 @@ export default function LoginPage() {
                         </form>
                     </CardContent>
                     <CardFooter className="flex justify-center">
-                        <p className="text-sm text-gray-400">
+                        <p className="text-sm text-gray-300">
                             Don't have an account?{" "}
                             <Link href="/register" className="text-purple-400 hover:text-purple-300 font-semibold">
                                 Create Account

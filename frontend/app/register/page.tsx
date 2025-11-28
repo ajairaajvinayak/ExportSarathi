@@ -71,17 +71,17 @@ export default function RegisterPage() {
                 <Card className="clean-card border-white/10">
                     <CardHeader className="text-center">
                         <CardTitle className="text-2xl font-bold text-white">Create Your Account</CardTitle>
-                        <CardDescription className="text-gray-400">
+                        <CardDescription className="text-gray-300">
                             Start your export journey with AI-powered guidance
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div className="space-y-2">
-                                <Label htmlFor="fullName" className="text-gray-300">Full Name</Label>
+                                <Label htmlFor="fullName" className="text-gray-100">Full Name</Label>
                                 <div className="relative flex items-center">
                                     <div className="absolute left-0 top-0 h-full flex items-center justify-center w-12 border-r-2 border-gray-600 bg-gray-800/30 rounded-l-md">
-                                        <User className="h-5 w-5 text-gray-400" />
+                                        <User className="h-5 w-5 text-gray-300" />
                                     </div>
                                     <Input
                                         id="fullName"
@@ -96,10 +96,10 @@ export default function RegisterPage() {
                             </div>
 
                             <div className="space-y-2">
-                                <Label htmlFor="email" className="text-gray-300">Email Address</Label>
+                                <Label htmlFor="email" className="text-gray-100">Email Address</Label>
                                 <div className="relative flex items-center">
                                     <div className="absolute left-0 top-0 h-full flex items-center justify-center w-12 border-r-2 border-gray-600 bg-gray-800/30 rounded-l-md">
-                                        <Mail className="h-5 w-5 text-gray-400" />
+                                        <Mail className="h-5 w-5 text-gray-300" />
                                     </div>
                                     <Input
                                         id="email"
@@ -114,10 +114,10 @@ export default function RegisterPage() {
                             </div>
 
                             <div className="space-y-2">
-                                <Label htmlFor="company" className="text-gray-300">Company Name</Label>
+                                <Label htmlFor="company" className="text-gray-100">Company Name</Label>
                                 <div className="relative flex items-center">
                                     <div className="absolute left-0 top-0 h-full flex items-center justify-center w-12 border-r-2 border-gray-600 bg-gray-800/30 rounded-l-md">
-                                        <Building className="h-5 w-5 text-gray-400" />
+                                        <Building className="h-5 w-5 text-gray-300" />
                                     </div>
                                     <Input
                                         id="company"
@@ -132,10 +132,10 @@ export default function RegisterPage() {
                             </div>
 
                             <div className="space-y-2">
-                                <Label htmlFor="password" className="text-gray-300">Password</Label>
+                                <Label htmlFor="password" className="text-gray-100">Password</Label>
                                 <div className="relative flex items-center">
                                     <div className="absolute left-0 top-0 h-full flex items-center justify-center w-12 border-r-2 border-gray-600 bg-gray-800/30 rounded-l-md">
-                                        <Lock className="h-5 w-5 text-gray-400" />
+                                        <Lock className="h-5 w-5 text-gray-300" />
                                     </div>
                                     <Input
                                         id="password"
@@ -150,10 +150,10 @@ export default function RegisterPage() {
                             </div>
 
                             <div className="space-y-2">
-                                <Label htmlFor="confirmPassword" className="text-gray-300">Confirm Password</Label>
+                                <Label htmlFor="confirmPassword" className="text-gray-100">Confirm Password</Label>
                                 <div className="relative flex items-center">
                                     <div className="absolute left-0 top-0 h-full flex items-center justify-center w-12 border-r-2 border-gray-600 bg-gray-800/30 rounded-l-md">
-                                        <Lock className="h-5 w-5 text-gray-400" />
+                                        <Lock className="h-5 w-5 text-gray-300" />
                                     </div>
                                     <Input
                                         id="confirmPassword"
@@ -178,7 +178,7 @@ export default function RegisterPage() {
                         </form>
                     </CardContent>
                     <CardFooter className="flex justify-center">
-                        <p className="text-sm text-gray-400">
+                        <p className="text-sm text-gray-300">
                             Already have an account?{" "}
                             <Link href="/login" className="text-purple-400 hover:text-purple-300 font-semibold">
                                 Sign In

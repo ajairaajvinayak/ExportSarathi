@@ -87,63 +87,7 @@ export default function LandingPage() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {/* Feature 1 */}
-              <div className="premium-card p-8 group">
-                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-6 glow-effect">
-                  <Globe className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold mb-3 text-white">Market Intelligence</h3>
-                <p className="text-gray-200 leading-relaxed">
-                  Identify the best target countries for your specific product using real-time trade data and AI-powered demand analysis.
-                </p>
-                <Link href="/dashboard" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
-                  Learn more <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </div>
-
-              {/* Feature 2 */}
-              <div className="premium-card p-8 group">
-                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mb-6 glow-effect">
-                  <ShieldCheck className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold mb-3 text-white">Compliance Roadmap</h3>
-                <p className="text-gray-200 leading-relaxed">
-                  Get a step-by-step checklist of certifications, registrations, and legal requirements for any destination country.
-                </p>
-                <Link href="/dashboard/compliance" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
-                  Learn more <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </div>
-
-              {/* Feature 3 */}
-              <div className="premium-card p-8 group">
-                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-6 glow-effect">
-                  <FileText className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold mb-3 text-white">Auto-Documentation</h3>
-                <p className="text-gray-200 leading-relaxed">
-                  Generate error-free Commercial Invoices, Packing Lists, and Certificates of Origin in one click with AI assistance.
-                </p>
-                <Link href="/dashboard/documents" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
-                  Learn more <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </div>
-
-              {/* Feature 4 */}
-              <div className="premium-card p-8 group">
-                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mb-6 glow-effect">
-                  <BarChart3 className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold mb-3 text-white">Analytics Dashboard</h3>
-                <p className="text-gray-200 leading-relaxed">
-                  Track your export readiness score, market trends, and compliance status all in one beautiful dashboard.
-                </p>
-                <Link href="/dashboard/analytics" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
-                  Learn more <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </div>
-
-              {/* Feature 5 */}
+              {/* Feature 1 - AI Export Advisor */}
               <div className="premium-card p-8 group">
                 <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-yellow-500 to-orange-500 flex items-center justify-center mb-6 glow-effect">
                   <Sparkles className="h-8 w-8 text-white" />
@@ -157,7 +101,7 @@ export default function LandingPage() {
                 </Link>
               </div>
 
-              {/* Feature 6 */}
+              {/* Feature 2 - Feasibility Checker */}
               <div className="premium-card p-8 group">
                 <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center mb-6 glow-effect">
                   <TrendingUp className="h-8 w-8 text-white" />
@@ -170,12 +114,68 @@ export default function LandingPage() {
                   Learn more <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </div>
+
+              {/* Feature 3 - Market Intelligence */}
+              <div className="premium-card p-8 group">
+                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-6 glow-effect">
+                  <Globe className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3 text-white">Market Intelligence</h3>
+                <p className="text-gray-200 leading-relaxed">
+                  Identify the best target countries for your specific product using real-time trade data and AI-powered demand analysis.
+                </p>
+                <Link href="/dashboard" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
+                  Learn more <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </div>
+
+              {/* Feature 4 - Compliance Roadmap */}
+              <div className="premium-card p-8 group">
+                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mb-6 glow-effect">
+                  <ShieldCheck className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3 text-white">Compliance Roadmap</h3>
+                <p className="text-gray-200 leading-relaxed">
+                  Get a step-by-step checklist of certifications, registrations, and legal requirements for any destination country.
+                </p>
+                <Link href="/dashboard/compliance" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
+                  Learn more <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </div>
+
+              {/* Feature 5 - Auto-Documentation */}
+              <div className="premium-card p-8 group">
+                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-6 glow-effect">
+                  <FileText className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3 text-white">Auto-Documentation</h3>
+                <p className="text-gray-200 leading-relaxed">
+                  Generate error-free Commercial Invoices, Packing Lists, and Certificates of Origin in one click with AI assistance.
+                </p>
+                <Link href="/dashboard/documents" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
+                  Learn more <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </div>
+
+              {/* Feature 6 - Analytics Dashboard */}
+              <div className="premium-card p-8 group">
+                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mb-6 glow-effect">
+                  <BarChart3 className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3 text-white">Analytics Dashboard</h3>
+                <p className="text-gray-200 leading-relaxed">
+                  Track your export readiness score, market trends, and compliance status all in one beautiful dashboard.
+                </p>
+                <Link href="/dashboard/analytics" className="mt-6 flex items-center text-purple-400 font-semibold group-hover:translate-x-2 transition-transform cursor-pointer">
+                  Learn more <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-32 px-6">
+        <section className="py-32 px-6 relative z-20">
           <div className="max-w-5xl mx-auto">
             <div className="premium-card p-12 md:p-16 text-center neon-border">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -184,12 +184,12 @@ export default function LandingPage() {
               <p className="text-xl text-gray-100 mb-10 max-w-2xl mx-auto">
                 Join thousands of Indian MSMEs already using ExportSarathi to expand their business internationally.
               </p>
-              <Link href="/register" className="inline-block cursor-pointer">
-                <Button size="lg" className="h-16 px-12 text-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-2xl shadow-purple-500/50 border-0 transition-transform hover:scale-105">
+              <Button asChild size="lg" className="h-16 px-12 text-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-2xl shadow-purple-500/50 border-0 transition-transform hover:scale-105">
+                <Link href="/register">
                   Start Your Export Journey
                   <ArrowRight className="ml-3 h-6 w-6" />
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </section>

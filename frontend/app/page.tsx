@@ -69,7 +69,18 @@ export default function LandingPage() {
               size="lg"
               variant="outline"
               className="h-14 px-10 text-lg glass-panel border-white/20 hover:bg-white/10"
-              onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => {
+                const featuresSection = document.getElementById('features')
+                if (featuresSection) {
+                  const headerOffset = 100 // Adjust for sticky header
+                  const elementPosition = featuresSection.getBoundingClientRect().top
+                  const offsetPosition = elementPosition + window.scrollY - headerOffset
+                  window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                  })
+                }
+              }}
             >
               <Zap className="mr-2 h-5 w-5 text-yellow-400" />
               Watch Demo

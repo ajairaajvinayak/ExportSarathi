@@ -58,24 +58,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-            <Link href="#features">
-              <Button size="lg" className="h-14 px-10 text-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 shadow-2xl shadow-purple-500/50 border-0 group">
-                Start Exporting Now
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <Link href="#features">
-              <Button
-                size="lg"
-                variant="outline"
-                className="h-14 px-10 text-lg glass-panel border-white/20 hover:bg-white/10"
-              >
-                <Zap className="mr-2 h-5 w-5 text-yellow-400" />
-                Watch Demo
-              </Button>
-            </Link>
-          </div>
+
 
           <div className="pt-16 float-animation">
             <div className="premium-card p-2 shadow-2xl">

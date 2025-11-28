@@ -13,8 +13,8 @@ load_dotenv()
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Initialize model globally for better performance
-# Using gemini-1.5-flash for lower latency
-model = genai.GenerativeModel('gemini-2.5-pro')
+# Using gemini-2.5-flash for lower latency
+model = genai.GenerativeModel('gemini-2.5-flash')
 
 # Create FastAPI app
 app = FastAPI(

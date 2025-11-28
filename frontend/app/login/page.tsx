@@ -67,13 +67,15 @@ export default function LoginPage() {
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div className="space-y-2">
                                 <Label htmlFor="email" className="text-gray-300">Email Address</Label>
-                                <div className="relative">
-                                    <Mail className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                                <div className="relative flex items-center">
+                                    <div className="absolute left-0 top-0 h-full flex items-center justify-center w-10 border-r border-white/10">
+                                        <Mail className="h-5 w-5 text-gray-400" />
+                                    </div>
                                     <Input
                                         id="email"
                                         type="email"
                                         placeholder="john@company.com"
-                                        className="pl-10"
+                                        className="pl-12"
                                         value={formData.email}
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                         required
@@ -88,13 +90,15 @@ export default function LoginPage() {
                                         Forgot password?
                                     </Link>
                                 </div>
-                                <div className="relative">
-                                    <Lock className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                                <div className="relative flex items-center">
+                                    <div className="absolute left-0 top-0 h-full flex items-center justify-center w-10 border-r border-white/10">
+                                        <Lock className="h-5 w-5 text-gray-400" />
+                                    </div>
                                     <Input
                                         id="password"
                                         type="password"
                                         placeholder="••••••••"
-                                        className="pl-10"
+                                        className="pl-12"
                                         value={formData.password}
                                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                                         required

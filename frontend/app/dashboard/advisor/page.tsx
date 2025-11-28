@@ -39,6 +39,21 @@ export default function AdvisorPage() {
         }
     }, [messages])
 
+    // Cleanup on unmount
+    useEffect(() => {
+        return () => {
+            if (recognitionRef.current) {
+                recognitionRef.current.stop()
+            }
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel()
+            }
+            if (silenceTimerRef.current) {
+                clearTimeout(silenceTimerRef.current)
+            }
+        }
+    }, [])
+
     // Initialize Speech Recognition
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -48,6 +63,10 @@ export default function AdvisorPage() {
                 recognitionRef.current.continuous = false // We handle continuity manually for better control
                 recognitionRef.current.interimResults = true
                 recognitionRef.current.lang = 'en-US'
+
+                recognitionRef.current.onstart = () => {
+                    setIsListening(true)
+                }
 
                 recognitionRef.current.onresult = (event: any) => {
                     const transcript = Array.from(event.results)
@@ -65,36 +84,59 @@ export default function AdvisorPage() {
                         if (event.results[0].isFinal) {
                             handleVoiceSend(transcript)
                         } else {
-                            // If not final but silence detected for 2 seconds, consider it done
+                            // If not final but silence detected for 3 seconds, consider it done
                             silenceTimerRef.current = setTimeout(() => {
                                 recognitionRef.current.stop()
                                 handleVoiceSend(transcript)
-                            }, 2000)
+                            }, 3000)
                         }
                     }
                 }
 
                 recognitionRef.current.onerror = (event: any) => {
-                    console.log("Speech recognition error", event.error)
+                    console.error("Speech recognition error", event.error)
                     setIsListening(false)
+                    if (event.error === 'not-allowed') {
+                        alert("Microphone access denied. Please enable microphone permissions in your browser settings.")
+                        setIsConversationMode(false)
+                    } else if (event.error === 'no-speech') {
+                        // Just restart if in conversation mode
+                        if (isConversationMode) {
+                            try {
+                                recognitionRef.current.start()
+                            } catch (e) {
+                                // Ignore if already started
+                            }
+                        }
+                    }
                 }
 
                 recognitionRef.current.onend = () => {
-                    setIsListening(false)
+                    // Only set isListening to false if NOT in conversation mode or if we stopped it manually
+                    if (!isConversationMode) {
+                        setIsListening(false)
+                    }
                 }
+            } else {
+                console.warn("Speech Recognition API not supported in this browser.")
             }
         }
     }, [isConversationMode])
 
     const startListening = () => {
-        if (recognitionRef.current && !isListening) {
-            setIsListening(true)
-            recognitionRef.current.start()
+        if (recognitionRef.current) {
+            try {
+                recognitionRef.current.start()
+            } catch (e) {
+                console.error("Error starting speech recognition:", e)
+            }
+        } else {
+            alert("Speech recognition is not supported in this browser. Please use Chrome, Edge, or Safari.")
         }
     }
 
     const stopListening = () => {
-        if (recognitionRef.current && isListening) {
+        if (recognitionRef.current) {
             recognitionRef.current.stop()
             setIsListening(false)
         }

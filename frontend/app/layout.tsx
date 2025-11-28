@@ -35,12 +35,13 @@ export const metadata: Metadata = {
     title: "ExportSarathi - AI Export Advisor",
     description: "AI-powered Global Trade Companion for Indian MSMEs",
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
   themeColor: "#6366f1",
 };
 

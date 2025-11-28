@@ -5,6 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Globe, FileCheck, AlertTriangle, TrendingUp, Trash2 } from "lucide-react"
 
+import Link from "next/link"
+
 export default function DashboardPage() {
     const [history, setHistory] = useState<any[]>([])
 
@@ -31,10 +33,12 @@ export default function DashboardPage() {
                         Welcome back, Ajai. Here&apos;s your export readiness overview.
                     </p>
                 </div>
-                <Button className="bg-gradient-to-r from-purple-600 to-pink-600 border-0">
-                    <Globe className="mr-2 h-4 w-4" />
-                    New Export Query
-                </Button>
+                <Link href="/dashboard/feasibility">
+                    <Button className="bg-gradient-to-r from-purple-600 to-pink-600 border-0">
+                        <Globe className="mr-2 h-4 w-4" />
+                        New Export Query
+                    </Button>
+                </Link>
             </div>
 
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -109,10 +113,10 @@ export default function DashboardPage() {
                                         </div>
                                         <div className="text-right">
                                             <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${item.score > 70
-                                                    ? "bg-green-900/30 text-green-400 border border-green-900"
-                                                    : item.score > 40
-                                                        ? "bg-yellow-900/30 text-yellow-400 border border-yellow-900"
-                                                        : "bg-red-900/30 text-red-400 border border-red-900"
+                                                ? "bg-green-900/30 text-green-400 border border-green-900"
+                                                : item.score > 40
+                                                    ? "bg-yellow-900/30 text-yellow-400 border border-yellow-900"
+                                                    : "bg-red-900/30 text-red-400 border border-red-900"
                                                 }`}>
                                                 {item.status} ({item.score})
                                             </span>

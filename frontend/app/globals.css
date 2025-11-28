@@ -299,3 +299,45 @@ a:hover {
 .neon-border:hover::before {
   opacity: 1;
 }
+
+/* Input and Textarea Visibility Fix */
+input,
+textarea,
+select {
+  color: #ffffff !important;
+  caret-color: #a78bfa !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  color: #ffffff !important;
+  outline: 2px solid rgba(167, 139, 250, 0.5);
+  outline-offset: 2px;
+}
+
+/* Ensure input backgrounds are visible */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(167, 139, 250, 0.5) !important;
+}
